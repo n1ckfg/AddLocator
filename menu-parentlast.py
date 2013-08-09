@@ -8,3 +8,6 @@ for i in range(0,len(target)-1):
     select(target[i])
     parent(target[i],target[len(target)-1])
 
+
+#3. select last object
+select(target[len(target)-1])
