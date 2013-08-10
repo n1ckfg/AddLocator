@@ -12,7 +12,7 @@ for i in range(1,len(target)):
     try:
         copyKey()
     except:
-        print "Couldn't copy keys."
+        print "Couldn't copy current selection's keys."
 
     #4. duplicate the first selection
     select(target[0])
@@ -23,7 +23,17 @@ for i in range(1,len(target)):
     try:
         pasteKey()
     except:
-        print "Couldn't paste keys."
-       
-    #6. delete selection
+        print "Couldn't paste current selection's keys."
+
+    #6. also get any keys further down the hierarchy from first selection
+    try:
+        copyKey(target[0], hi="both")
+    except:
+        print "Couldn't copy first selection's keys."
+    try:
+        pasteKey()
+    except:
+        print "Couldn't paste first selection's keys."
+        
+    #7. delete current selection
     delete(target[i])
